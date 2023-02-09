@@ -46,6 +46,8 @@ function photographerFactory(dataArtist) {
         article.appendChild(h2);
         article.appendChild(p1);
         article.appendChild(p2);
+
+        return (article);
     }
 
     return { name, picture, id, getUserCardDOM, getUserBioDOM}
