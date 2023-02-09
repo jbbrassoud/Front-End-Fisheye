@@ -3,6 +3,7 @@
 body {
     font-family: "DM Sans", sans-serif;
     margin: 0;
+    margin-block: 0;
 }
 
 
@@ -27,8 +28,8 @@ h1 {
 .photographer_section {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 70px;
-    margin-top: 100px;
+    gap: 60px;
+    margin-top: 70px;
 }
 
 .photographer_section article {
@@ -37,14 +38,48 @@ h1 {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    font-weight: 300;
+}
+
+.photographer_section a{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .photographer_section article h2 {
     color: #D3573C;
+    font-weight: 100;
     font-size: 36px;
+    margin-block-start: 0.5em;
+    margin-block-end: 0.05em;
 }
 
 .photographer_section article img {
     height: 200px;
     width: 200px;
+    object-fit:cover;
+    overflow: hidden;
+    border-radius: 100%;
+}
+
+.p1, .p2, .p3{
+    margin-block : 0;
+}
+
+.p1 {
+    color:#901C1C;
+    font-size:13px;
+}
+.p2 {
+    font-size: 10px;
+}
+.p3 {
+    color: #757575;
+    font-size: 9px;
+}
+
+a{
+    text-decoration: none;
 }
