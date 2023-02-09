@@ -1,13 +1,13 @@
-function photographerFactory(data) {
-    const { id, name, portrait, city, country, tagline, price } = data;
+function photographerFactory(dataArtist) {
+    const { id, name, portrait, city, country, tagline, price } = dataArtist;
 
     const picture = `assets/photographers/${portrait}`;
 
     function getUserCardDOM() {
         const article = document.createElement( 'article' );
         const linkId = document.createElement ('a');
-        linkId.title = "Page de " + id;  
-        linkId.href = "https://www.1formatik.com/4902/comment-creer-un-lien-en-javascript";
+        linkId.title = "Page de " + name;  
+        linkId.href = "photographer.html?id=" + id;
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture)
         const h2 = document.createElement( 'h2' );
@@ -33,5 +33,22 @@ function photographerFactory(data) {
         return (article);
     }
 
-    return { name, picture, id, getUserCardDOM}
+    function getUserBioDOM(){
+        const article = document.querySelector(".photographer-bio");
+        const h2 = document.createElement( 'h2' );
+        h2.textContent = name;
+        const p1 = document.createElement ('p');
+        p1.textContent = city + ', ' + country;
+        p1.classList.add('p1');
+        const p2 = document.createElement ('p');
+        p2.textContent = tagline;
+        p2.classList.add('p2');
+        article.appendChild(h2);
+        article.appendChild(p1);
+        article.appendChild(p2);
+    }
+
+    return { name, picture, id, getUserCardDOM, getUserBioDOM}
 }
+
+/* function photosFactory */

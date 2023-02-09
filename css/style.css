@@ -62,6 +62,7 @@ h1 {
     object-fit:cover;
     overflow: hidden;
     border-radius: 100%;
+    image-rendering:optimizeSpeed;
 }
 
 .p1, .p2, .p3{

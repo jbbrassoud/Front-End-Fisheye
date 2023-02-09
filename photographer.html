@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css">
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
@@ -9,10 +9,11 @@
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <a href="index.html"> <img src="assets/images/logo.png" class="logo" /></a>
     </header>
     <main id="main">
       <div class="photograph-header">
+        <div class="photographer-bio"></div>
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
       </div>
     </main>
@@ -27,10 +28,23 @@
 						<label>Prénom</label>
 						<input />
 					</div>
+          <div>
+						<label>Nom</label>
+						<input />
+					</div>
+          <div>
+						<label>Email</label>
+						<input />
+					</div>
+          <div>
+						<label>Votre message</label>
+						<input type="text" />
+					</div>
           <button class="contact_button">Envoyer</button>
 				</form>
 			</div>
 		</div>
+    <script src="scripts/factories/photographer.js"></script>
     <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
   </body>
