@@ -33,6 +33,23 @@ function photographerFactory(dataArtist) {
         return (article);
     }
 
+    function getMediaDom(){
+        const article = document.querySelector(".photographer-bio");
+        const h2 = document.createElement( 'h2' );
+        h2.textContent = name;
+        const p1 = document.createElement ('p');
+        p1.textContent = city + ', ' + country;
+        p1.classList.add('p1');
+        const p2 = document.createElement ('p');
+        p2.textContent = tagline;
+        p2.classList.add('p2');
+        article.appendChild(h2);
+        article.appendChild(p1);
+        article.appendChild(p2);
+
+        return (article);
+    }
+    
     function getUserBioDOM(){
         const article = document.querySelector(".photographer-bio");
         const h2 = document.createElement( 'h2' );
@@ -50,7 +67,7 @@ function photographerFactory(dataArtist) {
         return (article);
     }
 
-    return { name, picture, id, getUserCardDOM, getUserBioDOM}
+    return { name, picture, id, getUserCardDOM, getUserBioDOM, getMediaDom}
 }
 
 /* function photosFactory */
