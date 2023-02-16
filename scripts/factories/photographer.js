@@ -32,23 +32,6 @@ function photographerFactory(dataArtist) {
 
         return (article);
     }
-
-    function getMediaDom(){
-        const article = document.querySelector(".photographer-bio");
-        const h2 = document.createElement( 'h2' );
-        h2.textContent = name;
-        const p1 = document.createElement ('p');
-        p1.textContent = city + ', ' + country;
-        p1.classList.add('p1');
-        const p2 = document.createElement ('p');
-        p2.textContent = tagline;
-        p2.classList.add('p2');
-        article.appendChild(h2);
-        article.appendChild(p1);
-        article.appendChild(p2);
-
-        return (article);
-    }
     
     function getUserBioDOM(){
         const article = document.querySelector(".photographer-bio");
@@ -67,7 +50,26 @@ function photographerFactory(dataArtist) {
         return (article);
     }
 
-    return { name, picture, id, getUserCardDOM, getUserBioDOM, getMediaDom}
+    return { name, picture, id, getUserCardDOM, getUserBioDOM}
 }
 
+
+function mediaFactory(dataMedia) {
+    const { id, photographerId, title, image, likes, date, price } = dataMedia;
+
+    const picture = `assets/photographers/${portrait}`;
+
+    function getMediaDom(){
+        const article = document.querySelector(".divMedia");
+        const picImg = document.createElement ('img');
+        picImg.src = image;
+        const h2Title = document.createElement('h2');
+        h2Title.textContent = title;
+    
+        return (article);
+    }
+
+
+    return { photographerId, picture, id, getMediaDom}
+}
 /* function photosFactory */

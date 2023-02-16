@@ -41,6 +41,7 @@ async function displayMedia(medias) {
         const mediaBio = mediaModel.getMediaDom();
         mediaContainer.appendChild(mediaBio);
     })
+    
 };
 
 async function init() {
@@ -48,8 +49,10 @@ async function init() {
     const str = window.location.href;
     const url = new URL(str);
     const idSelector = url.searchParams.get("id");
-    const {photographer, medias} = await getData(idSelector);
-    
+    let {photographer, medias} = await getData(idSelector);
+    /* l'id est perdu
+    console.log(id);
+    */
     displayPhotographer(photographer);
     displayMedia(medias);
 };
