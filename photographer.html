@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Fisheye - photographe </title>
   </head>
   <body>
@@ -13,9 +14,9 @@
     </header>
     <main id="main">
       <div class="photograph-header">
-        <div class="photographer-bio"></div>
+        <div class="photograph-bio"></div>
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-        <img src="$picture">
+        <img class="bioPic">
       </div>
     </main>
     <div id="contact_modal">
@@ -60,9 +61,12 @@
 		</div>
 
     <div class="divMedia">
+    <span class="bottom-display">
 
+    </span>
     </div>
     <script src="scripts/factories/photographer.js"></script>
+    <script src="scripts/factories/mediafactory.js"></script>
     <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
   </body>

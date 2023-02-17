@@ -4,9 +4,6 @@ async function getData(id) {
     const data = await jsonCall.json();
     let photographer = [];
     let medias = [];
-
-    
-
     data["photographers"].forEach( function (el){
         if(el.id == id){
             photographer = el;
@@ -14,7 +11,7 @@ async function getData(id) {
     })
 
     data["media"].forEach(function (el){
-        if(el.idPhotographer == id){
+        if(el.photographerId == id){
             medias.push(el);
         }
     })
@@ -23,26 +20,51 @@ async function getData(id) {
 }
 
 async function displayPhotographer(photographer) {
-    const photoBio = document.querySelector(".photographer-bio");
+    const photoBio = document.querySelector(".photograph-bio");
     
     function photographerBio (photographer) {
         const bioModel = photographerFactory(photographer);
-        const bioData = bioModel.getUserBioDom();
+        const bioData = bioModel.getUserBioDOM();
         photoBio.appendChild(bioData);
     }
-    return photographerBio();
-};
+    return photographerBio(photographer);
+}
+
 
 async function displayMedia(medias) {
     const mediaContainer = document.querySelector(".divMedia");
     
     medias.forEach ((media) => {
         const mediaModel = mediaFactory(media);
-        const mediaBio = mediaModel.getMediaDom();
+        const mediaBio = mediaModel.getMediaDOM();
         mediaContainer.appendChild(mediaBio);
-    })
-    
+        
+    }) 
 };
+
+async function displayBottom(photographer) {
+    const bottomBox = document.querySelector(".bottom-display");
+    
+    function bottomBio (photographer) {
+        const bottomModel = photographerFactory(photographer);
+        const bottomData = bottomModel.displayBottomDOM();
+        bottomBox.appendChild(bottomData);
+        
+    }
+    return bottomBio(photographer);
+}
+
+/*
+async function displayBottom(likes) {
+    const bottomBox = document.querySelector("bottomBox");
+    let {photographer, medias} = await getData(likes);
+    var sum = 0;
+    for (var i = 0; i < likes.value; i++) {
+    sum += photographer[likes];
+    }     
+}   
+*/
+
 
 async function init() {
     // Récupère les datas des photographes
@@ -50,11 +72,12 @@ async function init() {
     const url = new URL(str);
     const idSelector = url.searchParams.get("id");
     let {photographer, medias} = await getData(idSelector);
-    /* l'id est perdu
-    console.log(id);
-    */
+    
+
     displayPhotographer(photographer);
     displayMedia(medias);
+
+    displayBottom(photographer);
 };
 
 init();
