@@ -57,7 +57,8 @@ function photographerFactory(dataArtist) {
         priceTag.textContent = price;
          return (priceTag);
     }
-    
+
+
 
 
     return { name, picture, id, price, getUserCardDOM, getUserBioDOM, displayBottomDOM}

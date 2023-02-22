@@ -5,34 +5,35 @@ function mediaFactory(dataMedia) {
     
 
     function getMediaDOM(){
-        const div = document.createElement("div");
-        div.classList.add("bloc-pic");
-        let picImg = document.createElement ('img');
-        let vidImg = document.createElement ('video');
-        
+        const a = document.createElement("a");
+        a.classList.add("bloc-pic");
         if(image){
-            
+            a.setAttribute("href", imgSrc);
+            let picImg = document.createElement ('img');
             picImg.setAttribute("src", imgSrc);
-            div.appendChild(picImg);
+            a.appendChild(picImg);
         }else{
-            
+            a.setAttribute("href", vidSrc);
+            let vidImg = document.createElement ('video');
             vidImg.setAttribute("src", vidSrc);
+            
             vidImg.setAttribute("type", "video/mp4")
             vidImg.setAttribute("type", "video/mp4")
-            div.appendChild(vidImg);
+            a.appendChild(vidImg);
         }
-        
-        
         const h2Title = document.createElement('h2');
         h2Title.textContent = title;
         const hearts = document.createElement("p");
         hearts.textContent = likes;
+        hearts.innerHTML = likes + " " + "<i class=\"fa-solid fa-heart\"></i>"
 
-        
-        div.appendChild(h2Title);
-        div.appendChild(hearts);
+        const span = document.createElement("span");
+        span.classList.add("span-pic");
+        a.appendChild(span);
+        span.appendChild(h2Title);
+        span.appendChild(hearts);
 
-        return (div);
+        return (a);
     }
     return {likes, getMediaDOM}
 }

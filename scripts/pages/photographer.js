@@ -54,16 +54,6 @@ async function displayBottom(photographer) {
     return bottomBio(photographer);
 }
 
-/*
-async function displayBottom(likes) {
-    const bottomBox = document.querySelector("bottomBox");
-    let {photographer, medias} = await getData(likes);
-    var sum = 0;
-    for (var i = 0; i < likes.value; i++) {
-    sum += photographer[likes];
-    }     
-}   
-*/
 
 
 async function init() {
