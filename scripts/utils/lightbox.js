@@ -107,9 +107,9 @@ class Lightbox {
   buildDOM(url) {
     const dom = document.createElement('div')
     dom.classList.add('lightbox')
-    dom.innerHTML = `<button class="lightbox__close">Fermer</button>
-        <button class="lightbox__next">Suivant</button>
-        <button class="lightbox__prev">Précédent</button>
+    dom.innerHTML = `<button class="lightbox__close"></button>
+        <button class="lightbox__next"></button>
+        <button class="lightbox__prev"></button>
         <div class="lightbox__container"></div>`
     dom.querySelector('.lightbox__close').addEventListener('click', this.close.bind(this))
     dom.querySelector('.lightbox__next').addEventListener('click', this.next.bind(this))
