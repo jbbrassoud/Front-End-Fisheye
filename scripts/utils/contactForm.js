@@ -70,7 +70,7 @@ function validate() {
   } else {
     console.log("La validation est bonne");
     document.getElementsByName('reserve')[0].style.display = "none";
-    thanksCall.style.display = "flex";
+    
     document.getElementsByName('reserve')[0].reset();
   }
 }

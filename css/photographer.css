@@ -60,24 +60,42 @@ form {
     align-items: flex-start;
 }
 
-.formdata label {
+.formData label {
     color: #312E2E;
     font-size: 36px;
 }
 
-.formdata {
+.formData {
     display: flex;
     flex-direction: column;
     width: 100%;
-    align-items: self-start;
-    margin-bottom: 26px;
+    align-items: start;
+    justify-content: flex-start;
+    margin-block: 0;
 }
 
-.formdata input {
+.formData label{
+    margin: 0;
+    margin-block: 0;
+    margin-inline: 0;
+    padding: 0;
+
+}
+
+.formData input {
     width: 100%;
     height: 68px;
     border: none;
     border-radius: 5px;
+    margin-bottom: 6px;
+}
+
+.formErrorFirst, .formErrorLast, .formErrorEmail, .formErrorMessage{
+    display: none;
+}
+
+.inputError{
+    border: #901C1C solid 2px;
 }
 
 .photograph-header {
@@ -182,5 +200,38 @@ opacity: .8;
     font-size: 24px;
     font-weight: 300;
     margin-block: 0;
+}
+
+.bottom-display{
+    position: fixed;
+    right:30px;
+    bottom: 0;
+    background-color: #DB8876;
+    font-size: 24px;
+    padding: 25px;
+    border-radius: 5px 5px 0 0;
+}
+
+.bottom-display p{
+    margin-block: 0;
+}
+
+.mediaFilter{
+    font-size: 18px;
+    left: 100px;
+}
+
+#sort-select{
+    background-color: #901C1C;
+    color: white;
+    padding: 25px;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+#sort-select option{
+    background-color: #901C1C;
+    color: white;
+
 }
 

@@ -1,5 +1,5 @@
 function photographerFactory(dataArtist) {
-    const { id, name, portrait, city, country, tagline, price } = dataArtist;
+    const { id, name, portrait, city, country, tagline, price, likes } = dataArtist;
 
     const picture = `assets/photographers/${portrait}`;
 
@@ -53,8 +53,10 @@ function photographerFactory(dataArtist) {
     }
 
     function displayBottomDOM() {
+        const likesCounter = document.createElement('h2');
+        likesCounter.textContent = likes;
         const priceTag = document.createElement('p');
-        priceTag.textContent = price;
+        priceTag.textContent = price + "€ / jour";
          return (priceTag);
     }
 
