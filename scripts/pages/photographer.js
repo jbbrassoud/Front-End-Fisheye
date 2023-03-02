@@ -41,17 +41,17 @@ async function displayMedia(medias) {
   })
 };
 
-async function displayBottom(photographer) {
-  const bottomBox = document.querySelector(".bottom-display");
+// async function displayBottom(photographer) {
+//   const bottomBox = document.querySelector(".bottom-display");
 
-  function bottomBio(photographer) {
-    const bottomModel = photographerFactory(photographer);
-    const bottomData = bottomModel.displayBottomDOM();
-    bottomBox.appendChild(bottomData);
+//   function bottomBio(photographer) {
+//     const bottomModel = photographerFactory(photographer);
+//     const bottomData = bottomModel.displayBottomDOM();
+//     bottomBox.appendChild(bottomData);
 
-  }
-  return bottomBio(photographer);
-}
+//   }
+//   return bottomBio(photographer);
+// }
 
 // Date
 function sortDate(medias) {
@@ -109,6 +109,40 @@ function likesUser() {
 
 }
 
+function displayBottom(medias) {
+  const span = document.createElement('span');
+  const likesCounter = document.createElement('p');
+
+  /* const array = [likes];
+  let sumLikes = 0;
+
+  for (let i = 0; i < array.length; i++) {
+  sumLikes += array[i];
+  }
+  */
+  const likesAmount = likes;
+  likesAmount.forEach(element => {
+      console.log(element)
+  });
+  
+
+  likesCounter.textContent = element;
+  console.log(sumLikes);
+
+
+  
+
+
+  const priceTag = document.createElement('p');
+  priceTag.textContent = price + "€ / jour";
+  span.appendChild(likesCounter)
+  span.appendChild(priceTag);
+  
+
+  return (span)
+}
+
+
 async function init() {
   // Récupère les datas des photographes
   const str = window.location.href;
@@ -120,7 +154,7 @@ async function init() {
   displayPhotographer(photographer);
   displayMedia(medias);
   likesUser();
-  displayBottom(photographer);
+  displayBottom(medias);
 };
 
 init();
