@@ -64,15 +64,53 @@
       </form>
     </div>
   </div>
-  <div class="mediaFilter">
-    <label for="filter">Trier par</label>
-    <select name="filter" id="sort-select">
-      <option value="popular">Popularité</option>
-      <option value="date">Date</option>
-      <option value="alphabetic">Titre</option>
-  
-    </select>
-  </div>
+  <nav aria-haspopup="true">
+    <span>Trier par</span>
+    <div class="sort_menu_close" id="button_open_menu">
+      <button id="button_open" aria-label="trier médias">Popularité</button>
+      <i
+        id="menu_icon_down"
+        class="fas fa-chevron-down"
+        aria-label="trier médias"
+      ></i>
+    </div>
+    <div
+      class="sort_menu"
+      role="menu"
+      aria-labelledby="button_open_menu"
+    >
+      <ul>
+        <li class="filter" id="filter_1" role="menuitem" onclick="sortPopularity()">
+          <a
+            data-filter-type="popularity"
+            aria-label="trier medias par popularité"
+            class="filter_link"
+            href="#"
+            >Popularité</a
+          >
+          <i id="menu_icon_up" class="fas fa-chevron-up" onclick="sortDate()"></i>
+        </li>
+        <li class="filter" id="filter_2" role="menuitem">
+          <a
+            data-filter-type="date"
+            aria-label="trier medias par date"
+            class="filter_link"
+            href="#"
+            >Date</a
+          >
+        </li>
+        <li class="filter" id="filter_3" role="menuitem" onclick="sortTitle()">
+          <a
+            data-filter-type="title"
+            aria-label="trier medias par ordre alphabétique"
+            class="filter_link"
+            href="#"
+            >Titre</a
+          >
+        </li>
+      </ul>
+    </div>
+  </nav>
 
   <div class="divMedia">
 

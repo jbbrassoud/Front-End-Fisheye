@@ -53,11 +53,29 @@ function photographerFactory(dataArtist) {
     }
 
     function displayBottomDOM() {
-        const likesCounter = document.createElement('h2');
-        likesCounter.textContent = likes;
+        const span = document.createElement('span');
+        const likesCounter = document.createElement('p');
+        const array = [likes];
+        let sumLikes = 0;
+
+        for (let i = 0; i < array.length; i++) {
+        sumLikes += array[i];
+        }
+
+        likesCounter.textContent = sumLikes;
+        console.log(sumLikes);
+
+
+        
+
+
         const priceTag = document.createElement('p');
         priceTag.textContent = price + "€ / jour";
-         return (priceTag);
+        span.appendChild(likesCounter)
+        span.appendChild(priceTag);
+        
+
+        return (span)
     }
 
 

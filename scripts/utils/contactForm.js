@@ -69,8 +69,6 @@ function validate() {
     console.log("Erreur validator")
   } else {
     console.log("La validation est bonne");
-    document.getElementsByName('reserve')[0].style.display = "none";
-    
-    document.getElementsByName('reserve')[0].reset();
+    return closeModal();
   }
 }
