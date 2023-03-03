@@ -52,32 +52,11 @@ function photographerFactory(dataArtist) {
         return (article);
     }
 
-    function displayBottomDOM() {
-        const span = document.createElement('span');
-        const likesCounter = document.createElement('p');
-        const arrayLikes = likes;
-/*         console.log(arrayLikes);
-        const initialValue = 0;
-        const sumWithInitial = arrayLikes.reduce(
-            (accumulator, currentValue) => accumulator + currentValue,
-            initialValue
-        );
-
-        likesCounter.textContent = sumWithInitial; */
-
-        
-
-        const priceTag = document.createElement('p');
-        priceTag.textContent = price + "€ / jour";
-        span.appendChild(likesCounter)
-        span.appendChild(priceTag);
-
-        return (span)
-    }
 
 
 
 
-    return { name, picture, id, price, getUserCardDOM, getUserBioDOM, displayBottomDOM }
+
+    return { name, picture, id, price, getUserCardDOM, getUserBioDOM}
 }
 

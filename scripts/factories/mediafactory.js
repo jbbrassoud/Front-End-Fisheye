@@ -20,7 +20,8 @@ function mediaFactory(dataMedia) {
             let vidImg = document.createElement('video');
             vidImg.setAttribute("src", vidSrc);
             vidImg.setAttribute("type", "video/mp4")
-            a.appendChild(vidImg);
+            a.appendChild(vidImg)
+            
         }
         const h2Title = document.createElement('h2');
         h2Title.textContent = title;

@@ -1,4 +1,7 @@
 //Mettre le code JavaScript lié à la page photographer.html
+
+let sumLikes = 0
+
 async function getData(id) {
   const jsonCall = await fetch('data/photographers.json');
   const data = await jsonCall.json();
@@ -37,21 +40,9 @@ async function displayMedia(medias) {
     const mediaModel = mediaFactory(media);
     const mediaBio = mediaModel.getMediaDOM();
     mediaContainer.appendChild(mediaBio);
-
+    sumLikes += media.likes;
   })
 };
-
-async function displayBottom(photographer) {
-  const bottomBox = document.querySelector(".bottom-display");
-
-  function bottomBio(photographer) {
-    const bottomModel = photographerFactory(photographer);
-    const bottomData = bottomModel.displayBottomDOM();
-    bottomBox.appendChild(bottomData);
-
-  }
-  return bottomBio(photographer);
-}
 
 // Date
 function sortDate(medias) {
@@ -85,23 +76,24 @@ function sortTitle(medias) {
 }
 
 function likesUser() {
-  let totalLikes = document.querySelector("#total_likes_photographer");
+  let totalLikes = 0;
   hearts = document.querySelectorAll(".fa-heart");
   hearts.forEach((heart) => {
 
     heart.addEventListener("click", functionLikes);
 
-    function functionLikes() {
-      let valueLike = parseInt(heart.previousElementSibling.innerHTML);
+    function functionLikes(event) {
+      console.log(event)
+      let valueLike = parseInt(event.previousElementSibling.innerHTML);
 
       if (valueLike === Number(tabValueOfAllsLikes[index])) {
         valueLike++;
         totalLikes.innerHTML++;
-        heart.previousElementSibling.innerHTML = valueLike.toString();
+        event.previousElementSibling.innerHTML = valueLike.toString();
       } else if (valueLike === Number(tabValueOfAllsLikes[index]) + 1) {
         valueLike--;
         totalLikes.innerHTML--;
-        heart.previousElementSibling.innerHTML = valueLike.toString();
+        event.previousElementSibling.innerHTML = valueLike.toString();
       }
       return functionLikes();
     }
@@ -109,6 +101,17 @@ function likesUser() {
 
 }
 
+async function displayBottom(photographer) {
+  const bottomBox = document.querySelector(".bottom-display");
+  const likesCounter = document.createElement('span');
+
+  likesCounter.textContent = sumLikes;
+  
+  const priceTag = document.createElement('span');
+  priceTag.textContent = photographer.price + "€ / jour";
+  bottomBox.appendChild(likesCounter)
+  bottomBox.appendChild(priceTag);
+}
 
 async function init() {
   // Récupère les datas des photographes

@@ -28,7 +28,7 @@
     <div class="modal">
       <header>
         <h2>Contactez-moi</h2>
-        <img src="assets/icons/close.svg" onclick="closeModal()" />
+        <img src="assets/icons/close.svg" id="close_Modal" onclick="closeModal()" />
       </header>
       <form>
         <div class="formData">
@@ -60,7 +60,7 @@
           </div>
         </div>
     
-        <button class="contact_button" onclick="validate()">Envoyer</button>
+        <button type="button" class="contact_button" onclick="validate()">Envoyer</button>
       </form>
     </div>
   </div>
@@ -117,9 +117,9 @@
   </div>
 
 
-  <span class="bottom-display">
+  <div class="bottom-display">
 
-  </span>
+  </div>
   <script src="/scripts/factories/photoFactory.js"></script>
   <script src="/scripts/factories/mediafactory.js"></script>
   <script src="/scripts/pages/photographer.js"></script>

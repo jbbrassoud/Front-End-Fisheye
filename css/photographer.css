@@ -210,7 +210,7 @@ opacity: .8;
     padding: 25px;
     border-radius: 5px 5px 0 0;
 }
-.bottom-display span{
+.bottom-display{
     display: flex;
     flex-direction: row;
 }
@@ -276,7 +276,7 @@ nav {
   }
   
   .sort_menu_open_display ul {
-    display: none;
+    
     background-color: #901C1C;
     margin-left: -154px;
     padding-left: 0px;
