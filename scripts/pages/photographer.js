@@ -1,6 +1,9 @@
 //Mettre le code JavaScript lié à la page photographer.html
 
 let sumLikes = 0
+let mediasTrie = [];
+
+
 
 async function getData(id) {
   const jsonCall = await fetch('data/photographers.json');
@@ -38,7 +41,7 @@ async function displayPhotographer(photographer) {
 
 async function displayMedia(medias) {
   const mediaContainer = document.querySelector(".divMedia");
-
+  mediaContainer.innerHTML = "";
   medias.forEach((media) => {
     const mediaModel = mediaFactory(media);
     const mediaBio = mediaModel.getMediaDOM();
@@ -48,8 +51,8 @@ async function displayMedia(medias) {
 };
 
 // Date
-function sortDate(medias) {
-  return medias.sort(function (mediaA, mediaB) {
+function sortDate() {
+  mediasTrie = mediasTrie.sort(function (mediaA, mediaB) {
     if (mediaA.date < mediaB.date) {
       return -1;
     }
@@ -57,17 +60,19 @@ function sortDate(medias) {
       return 1;
     }
   });
+  displayMedia(mediasTrie)
 }
 
 // Popularité
-function sortPopularity(medias) {
-  return medias.sort(function (mediaA, mediaB) {
-    return mediaA.likes - mediaB.likes;
+function sortPopularity() {
+  mediasTrie = mediasTrie.sort(function (mediaA, mediaB) {
+    return mediaB.likes - mediaA.likes;
   });
+  displayMedia(mediasTrie)
 }
 
 // Titre
-function sortTitle(medias) {
+function sortTitle() {
   return medias.sort(function (mediaA, mediaB) {
     if (mediaA.title < mediaB.title) {
       return -1;
@@ -86,10 +91,12 @@ function likesUser() {
     heart.addEventListener("click", functionLikes);
 
     function functionLikes(event) {
-      console.log(event)
+      console.log(event.srcElement.classList)
       let valueLike = event.previousElementSibling.innerHTML;
+      console.log(valueLike)
 
-      if (valueLike === document.querySelector(".fa-regular")) {
+
+      if (valueLike.class === document.querySelector(".fa-regular")) {
         valueLike++;
         totalLikes.innerHTML++;
         event.previousElementSibling.innerHTML = valueLike.toString();
@@ -142,7 +149,7 @@ async function init() {
   const url = new URL(str);
   const idSelector = url.searchParams.get("id");
   let { photographer, medias } = await getData(idSelector);
-
+  medias.forEach(media => mediasTrie.push(media));
 
   displayPhotographer(photographer);
   displayMedia(medias);

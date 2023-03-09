@@ -38,7 +38,8 @@ class Lightbox {
    */
   loadImage(url) {
     this.url = null
-    if (links.querySelector = "img"){
+    console.log(url.substr(-3, 3))
+    if (url.substr(-3, 3) != "mp4"){
       //medias.image
       const picture = new Image()
       const container = this.element.querySelector('.lightbox__container');
@@ -47,7 +48,7 @@ class Lightbox {
       container.appendChild(picture);
       picture.src = url;
     } else {
-      const picture = new document.createElement('video')
+      const picture = document.createElement('video')
       const container = this.element.querySelector('.lightbox__container');
       container.innerHTML = ''
       this.url = url;
