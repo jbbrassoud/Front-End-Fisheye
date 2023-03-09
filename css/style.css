@@ -67,9 +67,11 @@ h1 {
     height: 200px;
     width: 200px;
     object-fit:cover;
-    overflow: hidden;
+    overflow: clip;
+    overflow-clip-margin: unset;
     border-radius: 100%;
     image-rendering:optimizeSpeed;
+
 }
 
 .p1, .p2, .p3{

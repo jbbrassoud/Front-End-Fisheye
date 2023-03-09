@@ -18,16 +18,18 @@ function mediaFactory(dataMedia) {
         } else {
             a.setAttribute("href", vidSrc);
             let vidImg = document.createElement('video');
-            vidImg.setAttribute("src", vidSrc);
-            vidImg.setAttribute("type", "video/mp4")
+            let vidSource = document.createElement('source');
+            vidSource.setAttribute("src", vidSrc)
+            vidSource.setAttribute("type", "video/mp4")
             a.appendChild(vidImg)
+            vidImg.appendChild(vidSource);
             
         }
         const h2Title = document.createElement('h2');
         h2Title.textContent = title;
         const hearts = document.createElement("p");
         hearts.textContent = likes;
-        hearts.innerHTML = likes + " " + "<i class=\"fa-solid fa-heart\"></i>"
+        hearts.innerHTML = likes + " " + "<i class=\"fa-regular fa-heart\"></i>"
 
         const span = document.createElement("span");
         span.classList.add("span-pic");

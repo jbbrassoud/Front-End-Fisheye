@@ -22,6 +22,9 @@ async function getData(id) {
   return ({ photographer: photographer, medias: medias })
 }
 
+
+
+
 async function displayPhotographer(photographer) {
   const photoBio = document.querySelector(".photograph-bio");
 
@@ -77,15 +80,32 @@ function sortTitle(medias) {
 
 function likesUser() {
   let totalLikes = 0;
-  hearts = document.querySelectorAll(".fa-heart");
+  const hearts = document.querySelectorAll(".fa-heart");
   hearts.forEach((heart) => {
 
     heart.addEventListener("click", functionLikes);
 
     function functionLikes(event) {
       console.log(event)
-      let valueLike = parseInt(event.previousElementSibling.innerHTML);
+      let valueLike = parseInt(event.previousElementSibling);
 
+      if (valueLike === document.querySelector(".fa-regular")) {
+        valueLike++;
+        totalLikes.innerHTML++;
+        event.previousElementSibling.innerHTML = valueLike.toString();
+        valueLike.classList.remove("fa-regular");
+        valueLike.classList.add("fa-solid");
+      } else if (valueLike === document.querySelector(".fa-solid")) {
+        valueLike--;
+        totalLikes.innerHTML--;
+        valueLike.classList.remove("fa-solid");
+        valueLike.classList.add("fa-regular");
+        event.previousElementSibling.innerHTML = valueLike.toString();
+        
+      }
+      return functionLikes();
+
+      /*
       if (valueLike === Number(tabValueOfAllsLikes[index])) {
         valueLike++;
         totalLikes.innerHTML++;
@@ -96,6 +116,7 @@ function likesUser() {
         event.previousElementSibling.innerHTML = valueLike.toString();
       }
       return functionLikes();
+      */
     }
   });
 
@@ -106,7 +127,9 @@ async function displayBottom(photographer) {
   const likesCounter = document.createElement('span');
 
   likesCounter.textContent = sumLikes;
-  
+  likesCounter.innerHTML = sumLikes + " " + "<i class=\"fa-solid fa-heart\"></i>" + " ";
+
+
   const priceTag = document.createElement('span');
   priceTag.textContent = photographer.price + "€ / jour";
   bottomBox.appendChild(likesCounter)
@@ -128,4 +151,6 @@ async function init() {
 };
 
 init();
+
+//export function getData(id) 
 

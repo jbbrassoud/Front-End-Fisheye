@@ -1,19 +1,22 @@
-import {enableBodyScroll, disableBodyScroll} from './body-scroll-lock.js'
-
+import { enableBodyScroll, disableBodyScroll } from './body-scroll-lock.js'
+//import {medias} from '../pages/photographer'
+const links = Array.from(document.querySelectorAll('a[href$=".png"], a[href$=".jpg"], a[href$=".mp4"]'))
 /**
  * @property {HTMLElement} element
  * @property {string[]} images Chemins des images de la lightbox
  * @property {string} url Image actuellement affichée
  **/
+
+
 class Lightbox {
 
   static init() {
-    const links = Array.from(document.querySelectorAll('a[href$=".png"], a[href$=".jpg"], a[href$=".mp4"]'))
+
     const gallery = links.map(link => link.getAttribute('href'))
     links.forEach(link => link.addEventListener('click', e => {
-        e.preventDefault()
-        new Lightbox(e.currentTarget.getAttribute('href'), gallery)
-      }))
+      e.preventDefault()
+      new Lightbox(e.currentTarget.getAttribute('href'), gallery)
+    }))
   }
 
   /**
@@ -33,26 +36,40 @@ class Lightbox {
   /**
    * @param {string} url URL de l'image
    */
-  loadImage (url) {
+  loadImage(url) {
     this.url = null
-    const image = new Image()
-    const container = this.element.querySelector('.lightbox__container')
-    const loader = document.createElement('div')
-    loader.classList.add('lightbox__loader')
-    container.innerHTML = ''
-    container.appendChild(loader)
-    image.onload = () => {
-      container.removeChild(loader)
-      container.appendChild(image)
-      this.url = url
+    if (links.querySelector = "img"){
+      //medias.image
+      const picture = new Image()
+      const container = this.element.querySelector('.lightbox__container');
+      container.innerHTML = ''
+      this.url = url;
+      container.appendChild(picture);
+      picture.src = url;
+    } else {
+      const picture = new document.createElement('video')
+      const container = this.element.querySelector('.lightbox__container');
+      container.innerHTML = ''
+      this.url = url;
+      container.appendChild(picture);
+      picture.src = url;
     }
-    image.src = url
+    /*const image = new Image()
+    const image = new Image()
+    const container = this.element.querySelector('.lightbox__container');
+    container.innerHTML = ''
+    this.url = url;
+    container.appendChild(image);
+    image.src = url;
+    */
   }
+
+
 
   /**
    * @param {KeyboardEvent} e 
    */
-  onKeyUp (e) {
+  onKeyUp(e) {
     if (e.key === 'Escape') {
       this.close(e)
     } else if (e.key === 'ArrowLeft') {
@@ -66,7 +83,7 @@ class Lightbox {
    * Ferme la ligthbox
    * @param {MouseEvent|KeyboardEvent} e 
    */
-  close (e) {
+  close(e) {
     e.preventDefault()
     this.element.classList.add('fadeOut')
     enableBodyScroll(this.element)
@@ -79,9 +96,9 @@ class Lightbox {
   /**
    * @param {MouseEvent|KeyboardEvent} e 
    */
-  next (e) {
+  next(e) {
     e.preventDefault()
-    let i = this.images.findIndex(image => image === this.url)
+    let i = this.images.findIndex(picture => picture === this.url)
     if (i === this.images.length - 1) {
       i = -1
     }
@@ -91,9 +108,9 @@ class Lightbox {
   /**
    * @param {MouseEvent|KeyboardEvent} e 
    */
-  prev (e) {
+  prev(e) {
     e.preventDefault()
-    let i = this.images.findIndex(image => image === this.url)
+    let i = this.images.findIndex(picture => picture === this.url)
     if (i === 0) {
       i = this.images.length
     }
