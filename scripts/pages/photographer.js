@@ -47,6 +47,7 @@ async function displayMedia(medias) {
     const mediaBio = mediaModel.getMediaDOM();
     mediaContainer.appendChild(mediaBio);
     sumLikes += media.likes;
+    
   })
 };
 
@@ -73,7 +74,7 @@ function sortPopularity() {
 
 // Titre
 function sortTitle() {
-  return medias.sort(function (mediaA, mediaB) {
+  mediasTrie = mediasTrie.sort(function (mediaA, mediaB) {
     if (mediaA.title < mediaB.title) {
       return -1;
     }
@@ -81,6 +82,7 @@ function sortTitle() {
       return 1;
     }
   });
+  displayMedia(mediasTrie)
 }
 
 function likesUser() {

@@ -49,11 +49,16 @@ class Lightbox {
       picture.src = url;
     } else {
       const picture = document.createElement('video')
+      let videoSource = document.createElement('source');
       const container = this.element.querySelector('.lightbox__container');
       container.innerHTML = ''
       this.url = url;
+      videoSource.setAttribute("src", url)
+      videoSource.setAttribute("type", "video/mp4")
+      picture.controls = 
       container.appendChild(picture);
-      picture.src = url;
+      picture.appendChild(videoSource)
+      //videoSource.src = url;
     }
     /*const image = new Image()
     const image = new Image()

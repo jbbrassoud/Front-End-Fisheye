@@ -73,14 +73,14 @@
     opacity: 1;
 }
 .lightbox__container img {
-    max-width: 90%;
+    max-width: 85vw;
     max-height: 95vh;
     margin : 20px;
     animation: lightboxIn .5s;
     border-radius: 5px;
 }
 .lightbox__container video {
-    max-width: 90%;
+    max-width: 85vw;
     height: 95vh;
     margin : 20px;
     animation: lightboxIn .5s;
