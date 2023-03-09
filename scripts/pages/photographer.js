@@ -87,7 +87,7 @@ function likesUser() {
 
     function functionLikes(event) {
       console.log(event)
-      let valueLike = parseInt(event.previousElementSibling);
+      let valueLike = event.previousElementSibling.innerHTML;
 
       if (valueLike === document.querySelector(".fa-regular")) {
         valueLike++;
