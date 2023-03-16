@@ -29,10 +29,15 @@ function mediaFactory(dataMedia) {
         h2Title.textContent = title;
         const hearts = document.createElement("p");
         hearts.classList.add("value-like");
-        hearts.textContent = likes;
+        let nbLikes = document.createElement("span")
         
-        hearts.innerHTML = likes + " " + "<i class=\"fa-regular fa-heart\"></i>"
+        nbLikes.textContent = likes;
         
+        hearts.appendChild(nbLikes) 
+        let iFont = document.createElement("i")
+        iFont.classList.add("fa-regular")
+        iFont.classList.add("fa-heart")
+        hearts.appendChild(iFont);
         const span = document.createElement("span");
         span.classList.add("span-pic");
         div.appendChild(a)

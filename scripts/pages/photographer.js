@@ -91,30 +91,34 @@ function sortTitle() {
 
 
 function likesUser() {
-  let totalLikes = 0;
+  
   const hearts = document.querySelectorAll(".fa-heart");
   hearts.forEach((heart) => {
 
     heart.addEventListener("click", functionLikes);
 
     function functionLikes(event) {
-      console.log(event.srcElement.classList)
-      let valueLike = document.querySelector(".value-like").textContent;
+      console.log(event.srcElement.parentNode.children[0].textContent)
+      let valueLike = document.querySelector(".value-like");
       console.log(valueLike)
+      console.log(Array.from(event.srcElement.classList))
 
+      if (Array.from(event.srcElement.classList).includes("fa-regular")) {
 
-      if (hearts.classList == "fa-regular") {
-        valueLike++;
-        totalLikes.innerHTML++;
-        event.previousElementSibling.innerHTML = valueLike.toString();
-        hearts.classList.remove("fa-regular");
-        hearts.classList.add("fa-solid");
-      } else if (hearts.classList == ".fa-solid"){
-        valueLike--;
-        totalLikes.innerHTML--;
-        hearts.classList.remove("fa-solid");
-        hearts.classList.add("fa-regular");
-        event.previousElementSibling.innerHTML = valueLike.toString();
+        event.srcElement.parentNode.children[0].textContent++
+        document.querySelector("#totalLikes").textContent++
+
+        
+        event.srcElement.classList.remove("fa-regular");
+        event.srcElement.classList.add("fa-solid");
+      } else if (Array.from(event.srcElement.classList).includes("fa-solid")){
+
+        event.srcElement.parentNode.children[0].textContent--
+        document.querySelector("#totalLikes").textContent--
+
+        event.srcElement.classList.remove("fa-solid");
+        event.srcElement.classList.add("fa-regular");
+        
         
       } 
     }
@@ -126,9 +130,14 @@ async function displayBottom(photographer) {
   const bottomBox = document.querySelector(".bottom-display");
   const likesCounter = document.createElement('span');
 
-  likesCounter.textContent = sumLikes;
-  likesCounter.innerHTML = sumLikes + " " + "<i class=\"fa-solid fa-heart\"></i>" + " ";
-
+  let nbLikes = document.createElement("span")
+  nbLikes.textContent = sumLikes;
+  nbLikes.id = "totalLikes"
+  likesCounter.appendChild(nbLikes) 
+  let iFont = document.createElement("i")
+  iFont.classList.add("fa-solid")
+  iFont.classList.add("fa-heart")
+  likesCounter.appendChild(iFont);
 
   const priceTag = document.createElement('span');
   priceTag.textContent = photographer.price + "€ / jour";
