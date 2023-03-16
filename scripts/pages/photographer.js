@@ -119,8 +119,7 @@ function likesUser() {
       } 
     }
     
-  });
-  return functionLikes();
+  })  
 }
 
 async function displayBottom(photographer) {
