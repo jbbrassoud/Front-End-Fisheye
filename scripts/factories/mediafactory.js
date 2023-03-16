@@ -28,9 +28,11 @@ function mediaFactory(dataMedia) {
         const h2Title = document.createElement('h2');
         h2Title.textContent = title;
         const hearts = document.createElement("p");
+        hearts.classList.add("value-like");
         hearts.textContent = likes;
+        
         hearts.innerHTML = likes + " " + "<i class=\"fa-regular fa-heart\"></i>"
-
+        
         const span = document.createElement("span");
         span.classList.add("span-pic");
         div.appendChild(a)

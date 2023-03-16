@@ -96,17 +96,17 @@ function likesUser() {
 
     function functionLikes(event) {
       console.log(event.srcElement.classList)
-      let valueLike = event.previousElementSibling.parseInt.innerHTML;
+      let valueLike = document.querySelector(".value-like").textContent;
       console.log(valueLike)
 
 
-      if (valueLike.srcElement.classList === "fa-regular") {
+      if (event.srcElement.classList === "fa-regular") {
         valueLike++;
         totalLikes.innerHTML++;
         event.previousElementSibling.innerHTML = valueLike.toString();
         valueLike.classList.remove("fa-regular");
         valueLike.classList.add("fa-solid");
-      } else if (valueLike.srcElement.classList === ".fa-solid") {
+      } else if (event.srcElement.classList === ".fa-solid") {
         valueLike--;
         totalLikes.innerHTML--;
         valueLike.classList.remove("fa-solid");
@@ -116,18 +116,7 @@ function likesUser() {
       }
       return functionLikes(event);
 
-      /*
-      if (valueLike === Number(tabValueOfAllsLikes[index])) {
-        valueLike++;
-        totalLikes.innerHTML++;
-        event.previousElementSibling.innerHTML = valueLike.toString();
-      } else if (valueLike === Number(tabValueOfAllsLikes[index]) + 1) {
-        valueLike--;
-        totalLikes.innerHTML--;
-        event.previousElementSibling.innerHTML = valueLike.toString();
-      }
-      return functionLikes();
-      */
+
     }
   });
 
