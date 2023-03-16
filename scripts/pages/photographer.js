@@ -61,6 +61,7 @@ function sortDate() {
       return 1;
     }
   });
+  
   displayMedia(mediasTrie)
 }
 
@@ -69,6 +70,7 @@ function sortPopularity() {
   mediasTrie = mediasTrie.sort(function (mediaA, mediaB) {
     return mediaB.likes - mediaA.likes;
   });
+  
   displayMedia(mediasTrie)
 }
 
@@ -82,6 +84,7 @@ function sortTitle() {
       return 1;
     }
   });
+  
   displayMedia(mediasTrie)
   
 }
@@ -100,20 +103,20 @@ function likesUser() {
       console.log(valueLike)
 
 
-      if (event.srcElement.classList === "fa-regular") {
+      if (hearts.classList == "fa-regular") {
         valueLike++;
         totalLikes.innerHTML++;
         event.previousElementSibling.innerHTML = valueLike.toString();
-        valueLike.classList.remove("fa-regular");
-        valueLike.classList.add("fa-solid");
-      } else if (event.srcElement.classList === ".fa-solid") {
+        hearts.classList.remove("fa-regular");
+        hearts.classList.add("fa-solid");
+      } else if (hearts.classList == ".fa-solid"){
         valueLike--;
         totalLikes.innerHTML--;
-        valueLike.classList.remove("fa-solid");
-        valueLike.classList.add("fa-regular");
+        hearts.classList.remove("fa-solid");
+        hearts.classList.add("fa-regular");
         event.previousElementSibling.innerHTML = valueLike.toString();
         
-      }
+      } 
       return functionLikes(event);
 
 
