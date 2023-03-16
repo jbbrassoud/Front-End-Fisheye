@@ -117,12 +117,10 @@ function likesUser() {
         event.previousElementSibling.innerHTML = valueLike.toString();
         
       } 
-      return functionLikes(event);
-
-
     }
+    
   });
-
+  return functionLikes();
 }
 
 async function displayBottom(photographer) {
