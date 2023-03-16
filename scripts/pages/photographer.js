@@ -83,7 +83,9 @@ function sortTitle() {
     }
   });
   displayMedia(mediasTrie)
+  
 }
+
 
 function likesUser() {
   let totalLikes = 0;
@@ -94,17 +96,17 @@ function likesUser() {
 
     function functionLikes(event) {
       console.log(event.srcElement.classList)
-      let valueLike = event.previousElementSibling.innerHTML;
+      let valueLike = event.previousElementSibling.parseInt.innerHTML;
       console.log(valueLike)
 
 
-      if (valueLike.class === document.querySelector(".fa-regular")) {
+      if (valueLike.srcElement.classList === "fa-regular") {
         valueLike++;
         totalLikes.innerHTML++;
         event.previousElementSibling.innerHTML = valueLike.toString();
         valueLike.classList.remove("fa-regular");
         valueLike.classList.add("fa-solid");
-      } else if (valueLike === document.querySelector(".fa-solid")) {
+      } else if (valueLike.srcElement.classList === ".fa-solid") {
         valueLike--;
         totalLikes.innerHTML--;
         valueLike.classList.remove("fa-solid");
@@ -112,7 +114,7 @@ function likesUser() {
         event.previousElementSibling.innerHTML = valueLike.toString();
         
       }
-      return functionLikes();
+      return functionLikes(event);
 
       /*
       if (valueLike === Number(tabValueOfAllsLikes[index])) {

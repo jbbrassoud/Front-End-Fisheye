@@ -55,7 +55,7 @@ class Lightbox {
       this.url = url;
       videoSource.setAttribute("src", url)
       videoSource.setAttribute("type", "video/mp4")
-      picture.controls = 
+      picture.controls = true ;
       container.appendChild(picture);
       picture.appendChild(videoSource)
       //videoSource.src = url;
@@ -83,6 +83,7 @@ class Lightbox {
     } else if (e.key === 'ArrowRight') {
       this.next(e)
     }
+    
   }
 
   /**
