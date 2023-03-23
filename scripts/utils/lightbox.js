@@ -49,17 +49,21 @@ class Lightbox {
     this.alt = alt;
     if (url.endsWith(".mp4")) {
       const video = document.createElement("video");
-      const container = this.element.querySelector(".lightbox__container");
+      const container = this.element.querySelector(".lightbox__contenu__figure");
+      let videoSource = document.createElement('source');
       const legend = document.createElement("figcaption");
       legend.innerHTML += this.alt;
       legend.classList.add("lightbox__contenu__figcaption");
       console.log(container)
       container.innerHTML = "";
       video.url = url;
+
+      video.setAttribute("controls", "");
+      videoSource.setAttribute("src", url)
+      videoSource.setAttribute("type", "video/mp4")
       container.appendChild(video);
       container.appendChild(legend);
-      video.setAttribute("controls", "");
-      
+      video.appendChild(videoSource)
       video.classList.add("lightbox__contenu__media");
     } else if (url.endsWith(".jpg")) {
       const image = new Image();
@@ -142,4 +146,4 @@ class Lightbox {
     return dom;
   }
 }
-
+Lightbox.init();

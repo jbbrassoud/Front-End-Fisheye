@@ -158,7 +158,6 @@ async function init() {
 
   displayPhotographer(photographer);
   displayMedia(medias);
-  
   displayBottom(photographer);
 };
 
