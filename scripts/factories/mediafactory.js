@@ -22,9 +22,10 @@ function mediaFactory(dataMedia) {
             vidSource.setAttribute("src", vidSrc)
             vidSource.setAttribute("type", "video/mp4")
             const altImg = title;
-            vidImg.setAttribute("alt", altImg);
+
             a.appendChild(vidImg)
             vidImg.appendChild(vidSource);
+            vidSource.setAttribute("alt", altImg);
             
         }
         const h2Title = document.createElement('h2');

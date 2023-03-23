@@ -53,11 +53,14 @@ class Lightbox {
       const legend = document.createElement("figcaption");
       legend.innerHTML += this.alt;
       legend.classList.add("lightbox__contenu__figcaption");
+      console.log(container)
       container.innerHTML = "";
+      video.url = url;
       container.appendChild(video);
       container.appendChild(legend);
       video.setAttribute("controls", "");
-      video.src = url;
+      
+      video.classList.add("lightbox__contenu__media");
     } else if (url.endsWith(".jpg")) {
       const image = new Image();
       const container = this.element.querySelector(".lightbox__contenu__figure");

@@ -108,10 +108,6 @@ function likesUser() {
     heart.addEventListener("click", functionLikes);
 
     function functionLikes(event) {
-      console.log(event.srcElement.parentNode.children[0].textContent)
-      let valueLike = document.querySelector(".value-like");
-      console.log(valueLike)
-      console.log(Array.from(event.srcElement.classList))
 
       if (Array.from(event.srcElement.classList).includes("fa-regular")) {
 
