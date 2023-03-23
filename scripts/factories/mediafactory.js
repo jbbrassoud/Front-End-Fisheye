@@ -21,6 +21,8 @@ function mediaFactory(dataMedia) {
             let vidSource = document.createElement('source');
             vidSource.setAttribute("src", vidSrc)
             vidSource.setAttribute("type", "video/mp4")
+            const altImg = title;
+            vidImg.setAttribute("alt", altImg);
             a.appendChild(vidImg)
             vidImg.appendChild(vidSource);
             

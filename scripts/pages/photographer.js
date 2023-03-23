@@ -1,8 +1,12 @@
 //Mettre le code JavaScript lié à la page photographer.html
 
+
+
+
 let sumLikes = 0
 let mediasTrie = [];
 
+// import { Lightbox } from "../utils/lightbox";
 
 
 async function getData(id) {
@@ -49,6 +53,9 @@ async function displayMedia(medias) {
     sumLikes += media.likes;
     
   })
+  likesUser();
+  
+  Lightbox.init()
 };
 
 // Date
@@ -63,6 +70,7 @@ function sortDate() {
   });
   
   displayMedia(mediasTrie)
+  Lightbox.init()
 }
 
 // Popularité
@@ -72,6 +80,7 @@ function sortPopularity() {
   });
   
   displayMedia(mediasTrie)
+  Lightbox.init()
 }
 
 // Titre
@@ -86,6 +95,7 @@ function sortTitle() {
   });
   
   displayMedia(mediasTrie)
+  Lightbox.init()
   
 }
 
@@ -107,15 +117,12 @@ function likesUser() {
 
         event.srcElement.parentNode.children[0].textContent++
         document.querySelector("#totalLikes").textContent++
-
-        
         event.srcElement.classList.remove("fa-regular");
         event.srcElement.classList.add("fa-solid");
       } else if (Array.from(event.srcElement.classList).includes("fa-solid")){
 
         event.srcElement.parentNode.children[0].textContent--
         document.querySelector("#totalLikes").textContent--
-
         event.srcElement.classList.remove("fa-solid");
         event.srcElement.classList.add("fa-regular");
         
@@ -155,11 +162,12 @@ async function init() {
 
   displayPhotographer(photographer);
   displayMedia(medias);
-  likesUser();
+  
   displayBottom(photographer);
 };
 
 init();
+
 
 //export function getData(id) 
 
