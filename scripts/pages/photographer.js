@@ -70,7 +70,7 @@ function sortDate() {
   });
   
   displayMedia(mediasTrie)
-  Lightbox.init()
+  
 }
 
 // Popularité
@@ -80,7 +80,7 @@ function sortPopularity() {
   });
   
   displayMedia(mediasTrie)
-  Lightbox.init()
+  
 }
 
 // Titre
@@ -95,7 +95,7 @@ function sortTitle() {
   });
   
   displayMedia(mediasTrie)
-  Lightbox.init()
+  
   
 }
 

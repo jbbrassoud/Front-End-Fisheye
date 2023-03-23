@@ -29,8 +29,8 @@
     color: #901C1C;
   }
   .lightbox__contenu__figure {
-    width: 50em;
-    height: 50em;
+
+    height: 90vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
