@@ -247,6 +247,10 @@ nav {
     font-size: 18px;
   }
   
+  nav filter{
+    
+  }
+
   .sort_menu_close {
     margin-left: 25px;
     display: flex;

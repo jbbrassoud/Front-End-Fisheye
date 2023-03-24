@@ -100,6 +100,7 @@ function sortTitle() {
 }
 
 
+
 function likesUser() {
   
   const hearts = document.querySelectorAll(".fa-heart");

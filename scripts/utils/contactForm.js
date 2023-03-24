@@ -1,6 +1,6 @@
 function onKeyUp(e) {
   if (e.key === "Escape") {
-    this.close(e);
+    this.closeModal(e);
   }
 }
 
@@ -11,12 +11,7 @@ function displayModal() {
 
 function closeModal() {
   const modal = document.getElementById("contact_modal");
-
-  modal.addEventListener("click", (e) => {
-
-
-    modal.style.display = "none";
-  });
+  modal.style.display = "none";
   modal.addEventListener("keyup", (e) => {
     if (e.code === "Echap") {
 
