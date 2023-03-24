@@ -58,9 +58,7 @@ async function displayMedia(medias) {
   Lightbox.init()
 };
 
-document.getElementById("sort_menu").addEventListener("change", sortPopularity)
-document.getElementById("sort_menu").addEventListener("change", sortDate)
-document.getElementById("sort_menu").addEventListener("change", sortTitle)
+
 
 
 // Date
@@ -77,7 +75,7 @@ function sortDate() {
   
 
   displayMedia(mediasTrie)
-  document.getElementById("sort_menu").removeEventListener("change", sortDate)
+
 }
 
 // Popularité
@@ -88,7 +86,7 @@ function sortPopularity() {
   });
   
   displayMedia(mediasTrie)
-  document.getElementById("sort_menu").removeEventListener("change", sortPopularity)
+
 }
 
 // Titre
@@ -104,10 +102,13 @@ function sortTitle() {
   });
   
   displayMedia(mediasTrie)
-  document.getElementById("sort_menu").removeEventListener("change", sortTitle)
+
   
 }
 
+document.getElementById("sort_menu").addEventListener("change", sortPopularity)
+document.getElementById("sort_menu").addEventListener("change", sortDate)
+document.getElementById("sort_menu").addEventListener("change", sortTitle)
 
 
 function likesUser() {

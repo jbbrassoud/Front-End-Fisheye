@@ -111,7 +111,7 @@ form {
     justify-self: center;
     display: flex;
     justify-content: center;
-    align-items: left;
+    align-items:start;
     flex-direction: column;
     font-weight: 300;
 }
@@ -120,7 +120,6 @@ form {
     display: flex;
     justify-content: left;
     flex-direction: column;
-    align-items: left;
 }
 
 .photograph-header article h2 {
@@ -262,7 +261,7 @@ opacity: .8;
     cursor: pointer;
   }
 
-  .sort_menu option{
+  #sort_menu option{
     display: flex;
     flex-direction: column;
     padding: 10px;
