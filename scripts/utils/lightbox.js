@@ -61,10 +61,11 @@ class Lightbox {
       video.setAttribute("controls", "");
       videoSource.setAttribute("src", url)
       videoSource.setAttribute("type", "video/mp4")
-      
+
       container.appendChild(video);
       container.appendChild(legend);
       video.appendChild(videoSource)
+      video.autoplay = true
       video.classList.add("lightbox__contenu__media");
 
     } else if (url.endsWith(".jpg")) {

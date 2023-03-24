@@ -1,23 +1,33 @@
+function onKeyUp(e) {
+  if (e.key === "Escape") {
+    this.close(e);
+  }
+}
+
 function displayModal() {
-    const modal = document.getElementById("contact_modal");
-	modal.style.display = "block";
+  const modal = document.getElementById("contact_modal");
+  modal.style.display = "block";
 }
 
-function closeModal(e) {
-  e.preventDefault();
-    const modal = document.getElementById("contact_modal");
+function closeModal() {
+  const modal = document.getElementById("contact_modal");
+
+  modal.addEventListener("click", (e) => {
+
+
     modal.style.display = "none";
-    document.removeEventListener("keyup", this.onKeyUp);
+  });
+  modal.addEventListener("keyup", (e) => {
+    if (e.code === "Echap") {
+
+      modal.style.display = "none";
+    }
+  });
 }
 
-function close(e) {
-  e.preventDefault();
 
-  window.setTimeout(() => {
-    this.element.parentElement.removeChild(this.element);
-  }, 500);
-  document.removeEventListener("keyup", this.onKeyUp);
-}
+
+
 
 // DOM Elements
 const formData = document.querySelectorAll(".formData");
@@ -40,10 +50,10 @@ const inputs = document.querySelectorAll("input");
 
 //Verificateur
 
-function verificator(){
+function verificator() {
   let ilYaUneErreur = false;
 
-  if (firstNameInput.value.length >= 2){
+  if (firstNameInput.value.length >= 2) {
     first.classList.remove("inputError");
     errorDisplayFirst.style.display = "none";
   } else {
@@ -51,7 +61,7 @@ function verificator(){
     errorDisplayFirst.style.display = "block";
     first.classList.add("inputError");
   }
-  if (lastNameInput.value.length >= 2){
+  if (lastNameInput.value.length >= 2) {
     last.classList.remove("inputError");
     errorDisplayLast.style.display = "none";
   } else {
@@ -60,7 +70,7 @@ function verificator(){
     last.classList.add("inputError");
   }
   //email - logique inversée car on cherche une erreur avec le Mismatch
-  if (emailInput.validity.typeMismatch != true){
+  if (emailInput.validity.typeMismatch != true) {
     email.classList.remove("inputError");
     errorDisplayEmail.style.display = "none";
   } else {
@@ -76,7 +86,7 @@ function verificator(){
 
 function validate() {
 
-  if(verificator()){
+  if (verificator()) {
     console.log("Erreur validator")
   } else {
     console.log("La validation est bonne");
