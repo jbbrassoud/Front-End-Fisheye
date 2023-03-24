@@ -26,7 +26,7 @@ function mediaFactory(dataMedia) {
             a.appendChild(vidImg)
             vidImg.appendChild(vidSource);
             vidSource.setAttribute("alt", altImg);
-            
+            vidImg.controls = true
         }
         const h2Title = document.createElement('h2');
         h2Title.textContent = title;

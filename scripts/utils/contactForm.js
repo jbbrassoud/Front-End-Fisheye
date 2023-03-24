@@ -3,9 +3,20 @@ function displayModal() {
 	modal.style.display = "block";
 }
 
-function closeModal() {
+function closeModal(e) {
+  e.preventDefault();
     const modal = document.getElementById("contact_modal");
     modal.style.display = "none";
+    document.removeEventListener("keyup", this.onKeyUp);
+}
+
+function close(e) {
+  e.preventDefault();
+
+  window.setTimeout(() => {
+    this.element.parentElement.removeChild(this.element);
+  }, 500);
+  document.removeEventListener("keyup", this.onKeyUp);
 }
 
 // DOM Elements
