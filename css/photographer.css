@@ -240,8 +240,8 @@ opacity: .8;
     align-items: center;
     margin-top: 25px;
     margin-bottom: 58px;
-    width: 400px;
     margin-left: 25px;
+    
   }
   
   .sort_menu_close span {
@@ -250,7 +250,19 @@ opacity: .8;
   }
 
   
-  .sort_menu{
+  #sort_menu{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 20px;
+    background-color: #901C1C;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+  }
+
+  .sort_menu option{
     display: flex;
     flex-direction: column;
     padding: 10px;
@@ -261,11 +273,9 @@ opacity: .8;
     cursor: pointer;
   }
 
-
-
   
   
-  .sort_menu_close button {
+/*   .sort_menu_close button {
     padding: 10px;
     border-radius: 5px 0px 0px 5px;
     background-color: #901C1C;
@@ -284,5 +294,5 @@ opacity: .8;
     display: block;
     position: relative;
     right: 0;
-  }
+  } */
 
