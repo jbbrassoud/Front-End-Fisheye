@@ -64,8 +64,9 @@
       </form>
     </div>
   </div>
-  <nav aria-haspopup="true" class="sort_menu_close" id="button_open_menu" role="button" aria-haspopup="listbox">
-    <span>Trier par</span>
+  <nav class="sort_menu_close" id="button_open_menu" role="listbox" aria-labelledby="label-filter" aria-haspopup="listbox"
+  aria-activedescendant="sort_menu">
+    <span id="label-filter">Trier par</span>
     <div class="sort_menu_close" id="button_open_menu" role="button" aria-haspopup="listbox">
       <i
         id="menu_icon_down"
@@ -77,7 +78,7 @@
     <div
       class="sort_menu"
       role="listbox"
-      aria-labelledby="filter"
+      aria-activedescendant="filter"
     >
       
         <div class="filter" id="filter_1" role="option" onclick="sortPopularity()">
