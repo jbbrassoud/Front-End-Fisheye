@@ -58,8 +58,14 @@ async function displayMedia(medias) {
   Lightbox.init()
 };
 
+document.getElementById("sort_menu").addEventListener("change", sortPopularity)
+document.getElementById("sort_menu").addEventListener("change", sortDate)
+document.getElementById("sort_menu").addEventListener("change", sortTitle)
+
+
 // Date
 function sortDate() {
+
   mediasTrie = mediasTrie.sort(function (mediaA, mediaB) {
     if (mediaA.date < mediaB.date) {
       return -1;
@@ -69,22 +75,25 @@ function sortDate() {
     }
   });
   
+
   displayMedia(mediasTrie)
-  
+  document.getElementById("sort_menu").removeEventListener("change", sortDate)
 }
 
 // Popularité
 function sortPopularity() {
+
   mediasTrie = mediasTrie.sort(function (mediaA, mediaB) {
     return mediaB.likes - mediaA.likes;
   });
   
   displayMedia(mediasTrie)
-  
+  document.getElementById("sort_menu").removeEventListener("change", sortPopularity)
 }
 
 // Titre
 function sortTitle() {
+
   mediasTrie = mediasTrie.sort(function (mediaA, mediaB) {
     if (mediaA.title < mediaB.title) {
       return -1;
@@ -95,7 +104,7 @@ function sortTitle() {
   });
   
   displayMedia(mediasTrie)
-  
+  document.getElementById("sort_menu").removeEventListener("change", sortTitle)
   
 }
 

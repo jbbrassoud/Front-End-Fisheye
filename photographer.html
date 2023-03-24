@@ -64,15 +64,14 @@
       </form>
     </div>
   </div>
-  <nav class="sort_menu_close" id="button_open_menu" role="listbox" aria-labelledby="label-filter" aria-haspopup="listbox"
+  <!-- <div class="sort_menu_close" id="button_open_menu" role="listbox" aria-labelledby="label-filter" aria-haspopup="listbox"
   aria-activedescendant="sort_menu">
     <span id="label-filter">Trier par</span>
-    <div class="sort_menu_close" id="button_open_menu" role="button" aria-haspopup="listbox">
+    <div class="sort_menu_close" id="button_open_menu" role="listbox" aria-haspopup="listbox">
       <i
         id="menu_icon_down"
         class="fas fa-chevron-down"
         aria-label="trier médias"
-        activedescendant="filter_1"
       ></i>
     </div>
     <div
@@ -81,19 +80,28 @@
       aria-activedescendant="filter"
     >
       
-        <div class="filter" id="filter_1" role="option" onclick="sortPopularity()">
-          <span>Popularité</span>
+        <div class="filter" id="filter_1" role="option" onclick="sortPopularity()"
+        style="display: none;">
+          Popularité
 
         </div>
         <div class="filter" id="filter_2" role="option" onclick="sortDate()">
-          <span>Date</span>
+          Date
         </div>
         <div class="filter" id="filter_3" role="option" onclick="sortTitle()">
-          <span>Titre</span>
+          Titre
         </div>
       
     </div>
-  </nav>
+  </div> -->
+  <div class="sort_menu_close">
+  <span>Trier Par</span>
+  <select name="sort_menu" id="sort_menu">
+    <option id="pop" value="pop" onchange="sortPopularity()">Popularité</option>
+    <option id="dat" value="dat" onchange="sortDate()">Date</option>
+    <option id="title-sort" value="tit" onchange="sortTitle()">Titre</option>
+  </select>
+</div>
 
   <div class="divMedia">
 
