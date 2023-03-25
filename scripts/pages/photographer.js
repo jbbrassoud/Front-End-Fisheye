@@ -59,7 +59,50 @@ async function displayMedia(medias) {
 };
 
 
+document.getElementById("sort_menu").addEventListener("change", filterData)
 
+function filterData(event){
+
+  const selectSort = document.getElementById("sort_menu").value;
+  switch (selectSort){
+    case 'pop' :
+
+      mediasTrie = mediasTrie.sort(function (mediaA, mediaB) {
+        return mediaB.likes - mediaA.likes;
+      });
+      
+      break;
+    case 'dat' :
+
+      mediasTrie = mediasTrie.sort(function (mediaA, mediaB) {
+        if (mediaA.date < mediaB.date) {
+          return -1;
+        }
+        if (mediaA.date > mediaB.date) {
+          return 1;
+        }
+      });
+      break;
+    case 'tit' :
+
+      mediasTrie = mediasTrie.sort(function (mediaA, mediaB) {
+        if (mediaA.title < mediaB.title) {
+          return -1;
+        }
+        if (mediaA.title > mediaB.title) {
+          return 1;
+        }
+      });
+      break;
+      default :
+      return medias;
+  }
+displayMedia(mediasTrie)
+}
+
+
+
+/* 
 
 // Date
 function sortDate() {
@@ -86,7 +129,6 @@ function sortPopularity() {
   });
   
   displayMedia(mediasTrie)
-
 }
 
 // Titre
@@ -102,15 +144,13 @@ function sortTitle() {
   });
   
   displayMedia(mediasTrie)
-
-  
 }
 
 document.getElementById("sort_menu").addEventListener("change", sortPopularity)
 document.getElementById("sort_menu").addEventListener("change", sortDate)
 document.getElementById("sort_menu").addEventListener("change", sortTitle)
 
-
+ */
 function likesUser() {
   
   const hearts = document.querySelectorAll(".fa-heart");

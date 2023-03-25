@@ -96,10 +96,10 @@
   </div> -->
   <div class="sort_menu_close">
   <span>Trier Par</span>
-  <select name="sort_menu" id="sort_menu" aria-hidden="true" aria-activedescendant="sort-items">
-    <option class="sort-items" value="pop" onchange="sortPopularity()">Popularité</option>
-    <option class="sort-items" value="dat" onchange="sortDate()">Date</option>
-    <option class="sort-items" value="tit" onchange="sortTitle()">Titre</option>
+  <select name="sort_menu" id="sort_menu" onchange="filterData()" aria-hidden="true" aria-selected aria-activedescendant="sort-items">
+    <option class="sort-items" value="pop" >Popularité</option>
+    <option class="sort-items" value="dat">Date</option>
+    <option class="sort-items" value="tit">Titre</option>
   </select>
 </div>
 
