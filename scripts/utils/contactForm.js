@@ -84,7 +84,7 @@ function validate() {
   if (verificator()) {
     console.log("Erreur validator")
   } else {
-    console.log("La validation est bonne");
+    console.log("prénom : " + firstNameInput.value + " - nom : " +  lastNameInput.value + " - email : " + emailInput.value + " - message : " + messageInput.value);
     return closeModal();
   }
 }
