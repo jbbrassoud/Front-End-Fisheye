@@ -18,7 +18,7 @@ class Lightbox {
         new Lightbox(e.currentTarget.getAttribute("src"), gallery, e.currentTarget.getAttribute("alt").split(",")[0], galleryAlt);
       });
       link.addEventListener("keyup", (e) => {
-        if (e.code === "Enter") {
+        if (e.key === "Enter") {
           e.preventDefault();
           new Lightbox(e.currentTarget.getAttribute("src"), gallery, e.currentTarget.getAttribute("alt").split(",")[0], galleryAlt);
         }
@@ -92,7 +92,7 @@ class Lightbox {
       this.next(e);
     } else if (e.key === "ArrowLeft") {
       this.previous(e);
-    }
+    } 
   }
   /**
   * Close modal
