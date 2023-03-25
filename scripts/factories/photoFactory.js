@@ -36,9 +36,9 @@ function photographerFactory(dataArtist) {
     function getUserBioDOM() {
         const bioBlock = document.querySelector('photograph-header')
         const article = document.createElement('article');
-        const h2 = document.createElement('h2');
-        h2.textContent = name;
-        const p1 = document.createElement('p');
+        const h1 = document.createElement('h1');
+        h1.textContent = name;
+        const p1 = document.createElement('h2');
         p1.textContent = city + ', ' + country;
         p1.classList.add('p01');
         const p2 = document.createElement('p');
@@ -46,7 +46,7 @@ function photographerFactory(dataArtist) {
         p2.classList.add('p02');
         const img = document.querySelector('.bioPic');
         img.setAttribute("src", picture)
-        article.appendChild(h2);
+        article.appendChild(h1);
         article.appendChild(p1);
         article.appendChild(p2);
 

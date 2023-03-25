@@ -122,7 +122,7 @@ form {
     flex-direction: column;
 }
 
-.photograph-header article h2 {
+.photograph-header article h1 {
     color: #D3573C;
     font-weight: 100;
     font-size: 64px;
