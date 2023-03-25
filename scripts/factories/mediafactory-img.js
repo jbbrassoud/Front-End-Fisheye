@@ -6,27 +6,25 @@ function mediaFactory(dataMedia) {
 
     function getMediaDOM() {
         const div = document.createElement("div");
-        const a = document.createElement("a");
         div.classList.add("bloc-pic");
         if (image) {
-            a.setAttribute("href", imgSrc);
-            let picImg = document.createElement('img');
-            picImg.setAttribute("src", imgSrc);
+            const picture = document.createElement('img');
+            picture.setAttribute("src", imgSrc);
             const altImg = title;
-            picImg.setAttribute("alt", altImg);
-            a.appendChild(picImg);
+            picture.setAttribute("alt", altImg);
+            picture.setAttribute("alt", altImg);
+            div.appendChild(picture)
+
         } else {
-            a.setAttribute("href", vidSrc);
-            let vidImg = document.createElement('video');
+            const picture = document.createElement('video');
             let vidSource = document.createElement('source');
             vidSource.setAttribute("src", vidSrc)
             vidSource.setAttribute("type", "video/mp4")
-            const altImg = title;
+            const altImg = "photo of " + title;
 
-            a.appendChild(vidImg)
-            vidImg.appendChild(vidSource);
+            picture.appendChild(vidSource);
             vidSource.setAttribute("alt", altImg);
-            
+            div.appendChild(picture)
 
         }
         const h2Title = document.createElement('h2');
@@ -44,12 +42,11 @@ function mediaFactory(dataMedia) {
         hearts.appendChild(iFont);
         const span = document.createElement("span");
         span.classList.add("span-pic");
-        div.appendChild(a)
         div.appendChild(span)
         span.appendChild(h2Title);
         span.appendChild(hearts);
+        hearts.setAttribute("role", "link")
         div.setAttribute("role", "link")
-
         return (div)
     }
     return { likes, getMediaDOM }

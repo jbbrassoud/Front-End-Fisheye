@@ -53,11 +53,11 @@ async function displayMedia(medias) {
     sumLikes += media.likes;
     
   })
+  
   likesUser();
   
   Lightbox.init()
 };
-
 
 document.getElementById("sort_menu").addEventListener("change", filterData)
 
@@ -213,6 +213,7 @@ async function init() {
 };
 
 init();
+
 
 
 //export function getData(id) 
