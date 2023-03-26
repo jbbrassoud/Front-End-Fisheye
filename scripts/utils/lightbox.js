@@ -16,12 +16,10 @@ class Lightbox {
 		links.forEach((link) => {
 			link.addEventListener("click", (e) => {
 				e.preventDefault();
-        console.log(e.currentTarget.getAttribute("href"));
-        console.log(e.currentTarget.children[0]);
+
 				new Lightbox(e.currentTarget.getAttribute("href"), gallery, e.currentTarget.children[0].getAttribute("alt"), galleryAlt);
 			});
 			link.addEventListener("keyup", (e) => {
-        console.log(e.key)
 				if (e.key === "Enter") {
 					e.preventDefault();
 					new Lightbox(e.currentTarget.getAttribute("href"), gallery, e.currentTarget.children[0].getAttribute("alt"), galleryAlt);
@@ -51,7 +49,6 @@ class Lightbox {
   loadMedia(url, alt) {
     this.url = url;
     this.alt = alt;
-    console.log(url)
     if (url.endsWith(".mp4")) {
       const video = document.createElement("video");
       const container = this.element.querySelector(".lightbox__contenu__figure");
@@ -59,7 +56,6 @@ class Lightbox {
       const legend = document.createElement("figcaption");
       legend.innerHTML += this.alt;
       legend.classList.add("lightbox__contenu__figcaption");
-      console.log(container)
       container.innerHTML = "";
       video.src = url;
 
