@@ -59,6 +59,7 @@ async function displayMedia(medias) {
   Lightbox.init()
 };
 
+
 document.getElementById("sort_menu").addEventListener("change", filterData)
 
 function filterData(event){

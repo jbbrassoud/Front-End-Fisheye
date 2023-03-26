@@ -8,23 +8,27 @@
  */
 class Lightbox {
   static init() {
-    const gallerySection = document.querySelector(".divMedia");
-    const links = Array.from(gallerySection.querySelectorAll('img[src$=".jpg"],source[src$=".mp4"]'));
-    const gallery = links.map((link) => link.getAttribute("src"));
-    const galleryAlt = links.map((link) => link.getAttribute("alt"));
-    links.forEach((link) => {
-      link.addEventListener("click", (e) => {
-        e.preventDefault();
-        new Lightbox(e.currentTarget.getAttribute("src"), gallery, e.currentTarget.getAttribute("alt").split(",")[0], galleryAlt);
-      });
-      link.addEventListener("keyup", (e) => {
-        if (e.key === "Enter") {
-          e.preventDefault();
-          new Lightbox(e.currentTarget.getAttribute("src"), gallery, e.currentTarget.getAttribute("alt").split(",")[0], galleryAlt);
-        }
-      });
-    });
-  }
+		const gallerySection = document.querySelector(".divMedia");
+		const links = Array.from(gallerySection.querySelectorAll('a[href$=".jpg"],a[href$=".mp4"]'));
+    const linksImg = Array.from(gallerySection.querySelectorAll('img[src$=".jpg"],source[src$=".mp4"]'))
+		const gallery = links.map((link) => link.getAttribute("href"));
+		const galleryAlt = linksImg.map((link) => link.getAttribute("alt"));
+		links.forEach((link) => {
+			link.addEventListener("click", (e) => {
+				e.preventDefault();
+        console.log(e.currentTarget.getAttribute("href"));
+        console.log(e.currentTarget.children[0]);
+				new Lightbox(e.currentTarget.getAttribute("href"), gallery, e.currentTarget.children[0].getAttribute("alt"), galleryAlt);
+			});
+			link.addEventListener("keyup", (e) => {
+        console.log(e.key)
+				if (e.key === "Enter") {
+					e.preventDefault();
+					new Lightbox(e.currentTarget.getAttribute("href"), gallery, e.currentTarget.children[0].getAttribute("alt"), galleryAlt);
+				}
+			});
+		});
+	}
   /**
   * @param {string} url Medias URL
   * @param {string[]} gallery Tableau medias
@@ -47,6 +51,7 @@ class Lightbox {
   loadMedia(url, alt) {
     this.url = url;
     this.alt = alt;
+    console.log(url)
     if (url.endsWith(".mp4")) {
       const video = document.createElement("video");
       const container = this.element.querySelector(".lightbox__contenu__figure");
@@ -56,7 +61,7 @@ class Lightbox {
       legend.classList.add("lightbox__contenu__figcaption");
       console.log(container)
       container.innerHTML = "";
-      video.url = url;
+      video.src = url;
 
       video.setAttribute("controls", "");
       videoSource.setAttribute("src", url)
@@ -116,7 +121,7 @@ class Lightbox {
     if (i === this.gallery.length - 1) {
       i = -1;
     }
-    this.loadMedia(this.gallery[i + 1], this.galleryAlt[i + 1].split(",")[0]);
+    this.loadMedia(this.gallery[i + 1], this.galleryAlt[i + 1]);
   }
   /**
   * media precedent
@@ -128,7 +133,7 @@ class Lightbox {
     if (i === 0) {
       i = this.gallery.length;
     }
-    this.loadMedia(this.gallery[i - 1], this.galleryAlt[i - 1].split(",")[0]);
+    this.loadMedia(this.gallery[i - 1], this.galleryAlt[i - 1]);
   }
   /**
   * @return {HTMLElement}

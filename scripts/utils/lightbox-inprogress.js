@@ -50,8 +50,8 @@ class Lightbox {
     console.log(this.url)
     this.url = url;
     this.alt = alt;
-    console.log(url)
-    if (url.substring(-3, 3) != "mp4") {
+    console.log(this.url)
+    if (url.endsWith(".mp4")) {
       const video = document.createElement("video");
       const container = this.element.querySelector(".lightbox__contenu__figure");
       let videoSource = document.createElement('source');

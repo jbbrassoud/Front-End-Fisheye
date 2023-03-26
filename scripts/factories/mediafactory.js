@@ -22,10 +22,10 @@ function mediaFactory(dataMedia) {
             vidSource.setAttribute("src", vidSrc)
             vidSource.setAttribute("type", "video/mp4")
             const altImg = title;
-
+            vidImg.setAttribute("alt", altImg);
             a.appendChild(vidImg)
             vidImg.appendChild(vidSource);
-            vidSource.setAttribute("alt", altImg);
+
             
 
         }
@@ -48,7 +48,6 @@ function mediaFactory(dataMedia) {
         div.appendChild(span)
         span.appendChild(h2Title);
         span.appendChild(hearts);
-        div.setAttribute("role", "link")
 
         return (div)
     }

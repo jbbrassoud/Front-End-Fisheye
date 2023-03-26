@@ -41,7 +41,7 @@ class Lightbox {
   loadImage(url) {
     this.url = null
     console.log(url.substr(-3, 3))
-    if (url.substr(-3, 3) != "mp4"){
+    if (url.substring(-3, 3) != "mp4"){
       //medias.image
       const picture = new Image()
       const container = this.element.querySelector('.lightbox__container');
